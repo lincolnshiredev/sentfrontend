@@ -167,7 +167,15 @@ class _PostDetailState extends State<PostDetail> {
                                           backgroundImage:
                                               NetworkImage(articles.urlToImage),
                                         ),
-                                       onTap: _launchURL(),
+                                        onTap: () async {
+                                          final url = articles.url;
+
+                                          if (await canLaunch(url)) {
+                                            await launch(url,forceWebView: true);
+                                          } else {
+                                            throw 'Could not launch $url';
+                                          }
+                                        },
                                         title: Column(
                                           children: <Widget>[
                                             Text(
@@ -212,14 +220,7 @@ class _PostDetailState extends State<PostDetail> {
       ),
     );
   }
-  _launchURL() async {
-  const url = "https://google.com"; 
-  if (await canLaunch(url)) { 
-    await launch(url, forceWebView: true);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+
 }
 
 LineChartData sampleData1() {
