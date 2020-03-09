@@ -29,10 +29,9 @@ LineChartData sampleData1(Prices prices) {
           fontWeight: FontWeight.bold,
           fontSize: 12,
         ),
-  
         getTitles: (value) {
           return '${value.floor()}';
-        }, 
+        },
       ),
     ),
     borderData: FlBorderData(
