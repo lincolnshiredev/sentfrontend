@@ -11,6 +11,23 @@ class PostDetail extends StatelessWidget {
   final HttpService httpService = HttpService();
 
   @override
+
+Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: HttpService.loadPrices(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return LineChart(
+              sampleData1(snapshot.data),
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -21,10 +38,19 @@ class PostDetail extends StatelessWidget {
           children: <Widget>[
             Expanded(
               flex: 3,
-              child: Card(
-                child: Container(
-                    width: 400, child: Center(child: Text("Chart to go here"))),
-              ),
+              child: FutureBuilder(
+        future: HttpService.loadPrices(post.symbol),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return LineChart(
+              sampleData1(snapshot.data),
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
             ),
               Expanded(
               flex: 2,

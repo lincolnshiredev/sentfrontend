@@ -1,13 +1,14 @@
+import 'package:stockandsentiment/line_graph.dart';
 import 'package:stockandsentiment/news_model.dart';
 import 'package:flutter/material.dart';
 import 'package:stockandsentiment/http_service.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class PostDetail extends StatefulWidget {
   final Post post;
   final Articles articles;
-  final Datum prices;
+  final List prices;
 
   PostDetail({@required this.post, this.articles, this.prices});
 
@@ -53,7 +54,7 @@ class _PostDetailState extends State<PostDetail> {
                 elevation: 8,
                 color: Color(0xFF1B1E28),
                 margin:
-                    new EdgeInsets.symmetric(horizontal: 50.0, vertical: 2.0),
+                    new EdgeInsets.symmetric(horizontal: 10.0, vertical: 2.0),
                 child: Container(
                   //height: 100,
                   decoration: BoxDecoration(
@@ -61,10 +62,19 @@ class _PostDetailState extends State<PostDetail> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: LineChart(
-                      sampleData1(),
-                      swapAnimationDuration: Duration(milliseconds: 250),
-                    ),
+                    child: FutureBuilder(
+        future: HttpService.loadPrices(widget.post.symbol),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return LineChart(
+              sampleData1(snapshot.data),
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        }),
                   ),
                 ),
               ),
@@ -92,43 +102,6 @@ class _PostDetailState extends State<PostDetail> {
                 ),
               ),
             ),
-
-            /*   Expanded(
-              flex: 2,
-              child: FutureBuilder(
-                future: httpService.loadPrices(post.symbol),
-                builder: (BuildContext context,
-                    AsyncSnapshot<List<Datum>> snapshot) {
-                  if (snapshot.hasData) {
-                    List<Datum> prices = snapshot.data;
-                    return ListView(
-                      children: prices
-                          .map(
-                            (Datum prices) => Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Card(
-                                child: Container(
-                                  height: 150.0,
-                                  child: Center(
-                                    child: ListTile(
-                                      title: Text(
-                                        prices.historical.close.toString(),
-                                        style: TextStyle(fontSize: 14.0),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
-                          .toList(),
-                    );
-                  } else {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                },
-              ),
-            ),  */
             Expanded(
               flex: 5,
               child: FutureBuilder(
@@ -171,7 +144,8 @@ class _PostDetailState extends State<PostDetail> {
                                           final url = articles.url;
 
                                           if (await canLaunch(url)) {
-                                            await launch(url,forceWebView: true);
+                                            await launch(url,
+                                                forceWebView: true);
                                           } else {
                                             throw 'Could not launch $url';
                                           }
@@ -220,92 +194,4 @@ class _PostDetailState extends State<PostDetail> {
       ),
     );
   }
-
-}
-
-LineChartData sampleData1() {
-  return LineChartData(
-    gridData: const FlGridData(
-      show: false,
-    ),
-    titlesData: FlTitlesData(
-      bottomTitles: SideTitles(
-        showTitles: true,
-        textStyle: TextStyle(
-          color: const Color(0xff72719b),
-          fontWeight: FontWeight.bold,
-          fontSize: 12,
-        ),
-        getTitles: (value) {
-          switch (value.toInt()) {
-            case 2:
-              return 'jan';
-            case 7:
-              return 'feb';
-            case 12:
-              return 'mar';
-            case 17:
-              return 'apr';
-          }
-          return '';
-        },
-      ),
-      leftTitles: SideTitles(
-        showTitles: true,
-        textStyle: TextStyle(
-          color: const Color(0xff75729e),
-          fontWeight: FontWeight.bold,
-          fontSize: 12,
-        ),
-        getTitles: (value) {
-          switch (value.toInt()) {
-            case 1:
-              return '1m';
-            case 2:
-              return '2m';
-            case 3:
-              return '3m';
-            case 4:
-              return '5m';
-          }
-          return '';
-        },
-      ),
-    ),
-    borderData: FlBorderData(
-      show: false,
-    ),
-    lineBarsData: linesBarData1(),
-  );
-}
-
-List<LineChartBarData> linesBarData1() {
-  LineChartBarData lineChartBarData1 = const LineChartBarData(
-    spots: [
-      FlSpot(1, 1),
-      FlSpot(3, 1.5),
-      FlSpot(5, 1.4),
-      FlSpot(7, 3.4),
-      FlSpot(10, 2),
-      FlSpot(12, 2.2),
-      FlSpot(14, 1.8),
-      FlSpot(16, 1.8),
-    ],
-    isCurved: false,
-    colors: [
-      Color(0xff4af699),
-    ],
-    barWidth: 2,
-    isStrokeCapRound: true,
-    dotData: FlDotData(
-      show: false,
-    ),
-    belowBarData: BarAreaData(
-      show: false,
-    ),
-  );
-
-  return [
-    lineChartBarData1,
-  ];
 }
