@@ -27,8 +27,8 @@ class HttpService {
 
   Future<List<Articles>> loadStock(ticker) async {
     final String stockURL =
-     //   "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/dev/newsOutput.json";
-    "https://us-central1-enhanced-bebop-268815.cloudfunctions.net/getArticles?ticker=" + ticker;
+       "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/dev/newsOutput.json";
+  //  "https://us-central1-enhanced-bebop-268815.cloudfunctions.net/getArticles?ticker=" + ticker;
     Response res = await get(stockURL);
     if (res.statusCode == 200) {
      // loadPrices(ticker);
@@ -42,8 +42,8 @@ class HttpService {
 
   static Future<Prices> loadPrices(ticker) async {
     final String pricesURL =
-       // "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/stockOutput.json";
-    "https://us-central1-enhanced-bebop-268815.cloudfunctions.net/stockData?ticker=" + ticker + "&days=14";
+       "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/stockOutput.json";
+   // "https://us-central1-enhanced-bebop-268815.cloudfunctions.net/stockData?ticker=" + ticker + "&days=14";
      print(pricesURL);
     Response res = await get(pricesURL);
     if (res.statusCode == 200) {
