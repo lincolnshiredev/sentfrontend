@@ -53,7 +53,7 @@ class StockInfo extends StatelessWidget {
                       style: _textStyle,
                     ),
                     Text(
-                      "\$${data['price']}",
+                      "Price: \$${data['price']}",
                       style: _textStyle,
                     ),
                     Text(
