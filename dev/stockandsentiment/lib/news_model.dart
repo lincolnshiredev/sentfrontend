@@ -290,7 +290,7 @@ class Historical {
     double open;
     double high;
     double low;
-    double close;
+    String close;
     double adjClose;
     double volume;
     double unadjustedVolume;
@@ -321,7 +321,7 @@ class Historical {
         open: json["open"].toDouble(),
         high: json["high"].toDouble(),
         low: json["low"].toDouble(),
-        close: json["close"].toDouble(),
+        close: json["close"].toString(),
         adjClose: json["adjClose"].toDouble(),
         volume: json["volume"].toDouble(),
         unadjustedVolume: json["unadjustedVolume"].toDouble(),

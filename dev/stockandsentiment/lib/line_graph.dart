@@ -5,12 +5,17 @@ import 'news_model.dart';
 LineChartData sampleData1(Prices prices) {
   double i = 0;
   return LineChartData(
+    
+    
     gridData: const FlGridData(
-      show: true,
+      show: false,
+      
+      
     ),
     titlesData: FlTitlesData(
       bottomTitles: SideTitles(
         interval: 7,
+        
         showTitles: true,
         textStyle: TextStyle(
           color: const Color(0xff72719b),
@@ -18,7 +23,7 @@ LineChartData sampleData1(Prices prices) {
           fontSize: 12,
         ),
         getTitles: (value) {
-          return '${value.toInt()}';
+          return '${value.toInt() - 1}';
         },
       ),
       leftTitles: SideTitles(
@@ -40,8 +45,9 @@ LineChartData sampleData1(Prices prices) {
     lineBarsData: [
       LineChartBarData(
         spots: prices.data.map((price) {
+          final val = FlSpot(i, double.parse(price.historical.close));
           i++;
-          return FlSpot(i, price.historical.close);
+          return val;
         }).toList(),
         isCurved: true,
         colors: [
@@ -53,9 +59,16 @@ LineChartData sampleData1(Prices prices) {
           show: false,
         ),
         belowBarData: BarAreaData(
-          show: false,
+          show: true,
+          colors: [
+            Color(0xff4af699).withOpacity(0.5),
+            Color(0xff4af699).withOpacity(0.0),
+          ],
+          gradientColorStops: [0.5, 1.0],
+          gradientFrom: const Offset(0, 0),
+          gradientTo: const Offset(0, 1),
         ),
       ),
-    ],
+    ]
   );
 }

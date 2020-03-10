@@ -49,6 +49,8 @@ class HttpService {
     if (res.statusCode == 200) {
       // print("got data");
       final prices = pricesFromJson(res.body);
+      
+    
 
 
       return prices;
