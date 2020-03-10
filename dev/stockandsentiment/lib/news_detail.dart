@@ -2,6 +2,7 @@ import 'package:stockandsentiment/line_graph.dart';
 import 'package:stockandsentiment/news_model.dart';
 import 'package:flutter/material.dart';
 import 'package:stockandsentiment/http_service.dart';
+import 'package:stockandsentiment/stock_info_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -63,18 +64,21 @@ class _PostDetailState extends State<PostDetail> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FutureBuilder(
-        future: HttpService.loadPrices(widget.post.symbol),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return LineChart(
-              sampleData1(snapshot.data),
-            );
-          } else {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        }),
+                        future: HttpService.loadPrices(widget.post.symbol),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Padding(
+                              padding: const EdgeInsets.all(3),
+                              child: LineChart(
+                                sampleData1(snapshot.data),
+                              ),
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        }),
                   ),
                 ),
               ),
@@ -82,25 +86,18 @@ class _PostDetailState extends State<PostDetail> {
             SizedBox(height: 5.0),
             Expanded(
               flex: 2,
-              child: Card(
-                color: Color(0xFF1B1E28),
-                elevation: 8.0,
-                margin:
-                    new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                child: Container(
-                  decoration:
-                      BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-                  width: 400,
-                  child: Center(
-                    child: Text(
-                      "Sentiment and Stock Details Here",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
+              child: FutureBuilder(
+                      future: httpService.loadStockInfo(widget.post.symbol),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return StockInfo(data: snapshot.data);
+                        } else {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      },
                     ),
-                  ),
-                ),
-              ),
             ),
             Expanded(
               flex: 5,
