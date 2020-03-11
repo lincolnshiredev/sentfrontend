@@ -9,8 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Stock & Sentiment',
       debugShowCheckedModeBanner: false,
-            theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
-
+      theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
       home: PostsPage(),
     );
   }

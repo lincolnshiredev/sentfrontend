@@ -42,10 +42,10 @@ class HttpService {
 
   static Future<Prices> loadPrices(ticker) async {
     final String pricesURL =
-           "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/stockOutput.json";
-        //"https://us-central1-enhanced-bebop-268815.cloudfunctions.net/stockData?ticker=" +
-           // ticker +
-           // "&days=27";
+        "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/stockOutput.json";
+    //"https://us-central1-enhanced-bebop-268815.cloudfunctions.net/stockData?ticker=" +
+    // ticker +
+    // "&days=27";
     print(pricesURL);
     Response res = await get(pricesURL);
     if (res.statusCode == 200) {
@@ -62,12 +62,10 @@ class HttpService {
   Future<Map<String, dynamic>> loadStockInfo(String ticker) async {
     //Urls
     String urlAdditionalData =
-        "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/newsOutput.json" 
-            ;
+        "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/newsOutput.json";
 
     String urlPriceAndLogo =
-        "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/stockOutput.json" 
-            ;
+        "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/stockOutput.json";
 
     //Responses of Urls in String Form
     Response additionalData = await get(urlAdditionalData);

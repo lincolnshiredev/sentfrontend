@@ -87,17 +87,17 @@ class _PostDetailState extends State<PostDetail> {
             Expanded(
               flex: 2,
               child: FutureBuilder(
-                      future: httpService.loadStockInfo(widget.post.symbol),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return StockInfo(data: snapshot.data);
-                        } else {
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                      },
-                    ),
+                future: httpService.loadStockInfo(widget.post.symbol),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return StockInfo(data: snapshot.data);
+                  } else {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                },
+              ),
             ),
             Expanded(
               flex: 5,

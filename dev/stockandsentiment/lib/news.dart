@@ -83,7 +83,8 @@ class PostsPage extends StatelessWidget {
                                                   color: Colors.white24))),
                                       child: CircleAvatar(
                                         backgroundColor: _colors[0 +
-                                            _random.nextInt(_colors.length - 0)],
+                                            _random
+                                                .nextInt(_colors.length - 0)],
                                         child: Text(
                                           post.symbol[0] + post.symbol[1],
                                           style: TextStyle(

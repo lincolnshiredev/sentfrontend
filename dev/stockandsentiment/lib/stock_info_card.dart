@@ -5,7 +5,6 @@ class StockInfo extends StatelessWidget {
 
   StockInfo({this.data});
 
-  //Declared textstyle so I can use it, In down three places without repeating it again.
   TextStyle _textStyle = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.w500,
@@ -24,13 +23,16 @@ class StockInfo extends StatelessWidget {
             color: Color.fromRGBO(64, 75, 96, .9),
             border: Border(
               right: BorderSide(
-                 color: (double.parse(data['sentiment']) < 0) != null ? Colors.red : Colors.green,
+                  color: (double.parse(data['sentiment']) < 0) != null
+                      ? Colors.red
+                      : Colors.green,
                   width: 15),
             ),
           ),
           child: Row(
             children: <Widget>[
-              Container( width: 125.0,
+              Container(
+                width: 125.0,
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(10)),
                 padding: EdgeInsets.all(10),
@@ -68,10 +70,10 @@ class StockInfo extends StatelessWidget {
           ),
         ),
         clipper: ShapeBorderClipper(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(3),
-                                    ),
-                                  ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(3),
+          ),
+        ),
       ),
     );
   }
