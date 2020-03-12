@@ -31,6 +31,20 @@ class HttpService {
     }
   }
 
+  static Future<bool> isNewRun() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    final _bool = sharedPreferences.getString('isFirstRun');
+
+    print(_bool);
+
+    if (_bool == null) {
+      sharedPreferences.setString('isFirstRun', "false");
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   static removeTickerFromLocal(String ticker) async {
     String api = await getUrlLocally();
     final updatedApi = api.replaceFirst(",$ticker", "");
