@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'news_model.dart';
+import 'package:stockandsentiment/models/price_model.dart';
 
 LineChartData sampleData1(Prices prices) {
   double i = 0;
@@ -8,10 +8,10 @@ LineChartData sampleData1(Prices prices) {
     var maxArr = [];
     var highVal = 0.00;
     for (var name in prices.data) {
-      if (double.parse(name.historical.close) > highVal) {
-        highVal = double.parse(name.historical.close);
+      if (double.parse(name.close) > highVal) {
+        highVal = double.parse(name.close);
       }
-      maxArr.add(double.parse(name.historical.close));
+      maxArr.add(double.parse(name.close));
     }
 
     return highVal;
@@ -21,10 +21,10 @@ LineChartData sampleData1(Prices prices) {
     var maxArr = [];
     var lowVal = 10000.00;
     for (var name in prices.data) {
-      if (double.parse(name.historical.close) < lowVal) {
-        lowVal = double.parse(name.historical.close);
+      if (double.parse(name.close) < lowVal) {
+        lowVal = double.parse(name.close);
       }
-      maxArr.add(double.parse(name.historical.close));
+      maxArr.add(double.parse(name.close));
     }
 
     return lowVal;
@@ -98,7 +98,7 @@ LineChartData sampleData1(Prices prices) {
       lineBarsData: [
         LineChartBarData(
           spots: prices.data.map((price) {
-            final val = FlSpot(i, double.parse(price.historical.close));
+            final val = FlSpot(i, double.parse(price.close));
             i++;
             return val;
           }).toList(),

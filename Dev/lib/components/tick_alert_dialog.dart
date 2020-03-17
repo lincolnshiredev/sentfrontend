@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:stockandsentiment/http_service.dart';
+import 'package:stockandsentiment/models/post_model.dart';
+import 'package:stockandsentiment/repository.dart';
 
 class TickAlertDialog extends StatefulWidget {
   Function setMainState;
@@ -12,6 +13,7 @@ class TickAlertDialog extends StatefulWidget {
 }
 
 class _TickAlertDialogState extends State<TickAlertDialog> {
+  Repository httpService = Repository();
   static final _key = GlobalKey<FormState>();
   String ticker;
   bool isWaiting = false;
@@ -52,7 +54,7 @@ class _TickAlertDialogState extends State<TickAlertDialog> {
       ticker = ticker.toUpperCase();
 
       //Old Api Data
-      String oldApi = await HttpService.getUrlLocally();
+      String oldApi = await httpService.getUrlLocally();
       Response oldApiResponse = await get(oldApi);
       final oldApiJson = json.decode(oldApiResponse.body);
 
@@ -68,9 +70,14 @@ class _TickAlertDialogState extends State<TickAlertDialog> {
           },
         );
       } else {
-        await HttpService.writeUrlLocalally(ticker);
+        await httpService.writeUrlLocalally(ticker);
+
+        List<Post> posts = List<Post>.from(newApiJson.map((f) {
+          return Post.fromJson(f);
+        }).toList());
+
+        widget.setMainState(posts);
         Navigator.pop(context);
-        widget.setMainState();
       }
     }
   }
@@ -84,18 +91,17 @@ class _TickAlertDialogState extends State<TickAlertDialog> {
           SizedBox(height: 80),
           Stack(
             children: <Widget>[
-              
               Container(
                 height: 250,
                 decoration: BoxDecoration(
-                      boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            offset: Offset(4, 4),
-                            blurRadius: 2,
-                          )
-                        ],
-                  color:  Colors.blueGrey.shade400,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      offset: Offset(4, 4),
+                      blurRadius: 2,
+                    )
+                  ],
+                  color: Colors.blueGrey.shade400,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 margin: EdgeInsets.symmetric(horizontal: 30),

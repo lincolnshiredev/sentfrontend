@@ -1,8 +1,11 @@
+//Package Imports
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tutorial_coach_mark/animated_focus_light.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
-import 'news.dart';
+//In File Imports
+import '../blocs/root_bloc/root_bloc.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -37,14 +40,13 @@ class _SplashScreenState extends State<SplashScreen> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: 25.0,),
+                          fontSize: 20.0),
                     ),
-                    SizedBox(height:20.0),
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Text(
-                        "This screen contains basic information about the stock tickers you have added.\nTap anywhere to continue.",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0),
+                        "This screen contains all the tickers you added, each ticker contains its information",
+                        style: TextStyle(color: Colors.white),
                       ),
                     )
                   ],
@@ -71,13 +73,13 @@ class _SplashScreenState extends State<SplashScreen> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: 25.0),
+                          fontSize: 20.0),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Text(
-                        "Tap anywhere to proceed",
-                        style: TextStyle(color: Colors.white, fontSize: 25.0),
+                        "Tap to move and add some tickers",
+                        style: TextStyle(color: Colors.white),
                       ),
                     )
                   ],
@@ -102,7 +104,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 25.0),
+                      fontSize: 20.0),
                 ),
               ],
             ),
@@ -122,11 +124,11 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Enter a ticker eg MSFT or msft\nfor Microsoft",
+                  "Entered ticker eg MSFT or msft",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 25.0),
+                      fontSize: 20.0),
                 ),
               ],
             ),
@@ -150,7 +152,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 25.0),
+                      fontSize: 20.0),
                 ),
               ],
             ),
@@ -175,7 +177,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontSize: 25.0),
+                        fontSize: 20.0),
                   ),
                 ),
               ],
@@ -191,19 +193,13 @@ class _SplashScreenState extends State<SplashScreen> {
     TutorialCoachMark(
       context,
       targets: targets,
-      colorShadow: Colors.purpleAccent,
-      textSkip: "SKIP",
+      colorShadow: Colors.red,
       alignSkip: AlignmentGeometry.lerp(
           Alignment.bottomCenter, Alignment.bottomLeft, 3),
       paddingFocus: 10,
       opacityShadow: 0.9,
       finish: () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PostsPage(),
-          ),
-        );
+        BlocProvider.of<RootBloc>(context).add(AppStarted());
       },
       clickTarget: (target) {
         print(target.identify);

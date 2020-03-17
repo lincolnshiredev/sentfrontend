@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:stockandsentiment/models/stock_info_model.dart';
 
 class StockInfo extends StatelessWidget {
-  Map<String, dynamic> data;
-
-  StockInfo({this.data});
+  StockInfoModel stockInfoModel;
+  StockInfo({this.stockInfoModel});
 
   TextStyle _textStyle = TextStyle(
     color: Colors.white,
@@ -23,7 +23,7 @@ class StockInfo extends StatelessWidget {
             color: Color.fromRGBO(64, 75, 96, .9),
             border: Border(
               right: BorderSide(
-                  color: (double.parse(data['sentiment']) < 0) != null
+                  color: (double.parse(stockInfoModel.sentiment) < 0) != null
                       ? Colors.red
                       : Colors.green,
                   width: 15),
@@ -39,7 +39,7 @@ class StockInfo extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
-                    data['image'],
+                    stockInfoModel.image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -51,15 +51,15 @@ class StockInfo extends StatelessWidget {
                   children: [
                     SizedBox(height: 10),
                     Text(
-                      "Sentiment Score: ${data['sentiment']}",
+                      "Sentiment Score: ${stockInfoModel.sentiment}",
                       style: _textStyle,
                     ),
                     Text(
-                      "Price: \$${data['price']}",
+                      "Price: \$${stockInfoModel.price}",
                       style: _textStyle,
                     ),
                     Text(
-                      "${data['numberOfArticles']} Articles",
+                      "${stockInfoModel.numberOfArticles} Articles",
                       style: _textStyle,
                     ),
                     SizedBox(height: 10),
