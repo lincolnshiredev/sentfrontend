@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Stock Prices of Tickers",
+                      "Stock Prices",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Text(
-                        "This screen contains all the tickers you added, each ticker contains its information",
+                        "This screen contains stock data on the tickers you have added.",
                         style: TextStyle(color: Colors.white),
                       ),
                     )
@@ -78,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Text(
-                        "Tap to move and add some tickers",
+                        "Tap to add some tickers",
                         style: TextStyle(color: Colors.white),
                       ),
                     )

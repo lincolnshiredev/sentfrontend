@@ -20,10 +20,10 @@
       "languageVersion": "2.0"
     },
     {
-      "name": "bezier_chart",
-      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/bezier_chart-1.0.16",
+      "name": "bloc",
+      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/bloc-3.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.6"
     },
     {
       "name": "boolean_selector",
@@ -42,18 +42,6 @@
       "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.1.2",
       "packageUri": "lib/",
       "languageVersion": "1.0"
-    },
-    {
-      "name": "charts_common",
-      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/charts_common-0.9.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.3"
-    },
-    {
-      "name": "charts_flutter",
-      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/charts_flutter-0.9.0",
-      "packageUri": "lib/",
-      "languageVersion": "1.23"
     },
     {
       "name": "collection",
@@ -80,6 +68,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "equatable",
+      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/equatable-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "fl_chart",
       "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/fl_chart-0.8.3",
       "packageUri": "lib/",
@@ -90,6 +84,12 @@
       "rootUri": "file:///Users/chriskirby/Developer/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "2.2"
+    },
+    {
+      "name": "flutter_bloc",
+      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-3.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "flutter_cache_manager",
@@ -128,18 +128,6 @@
       "languageVersion": "2.0"
     },
     {
-      "name": "intl",
-      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.16.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.5"
-    },
-    {
-      "name": "logging",
-      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/logging-0.11.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "matcher",
       "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.6",
       "packageUri": "lib/",
@@ -150,6 +138,12 @@
       "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.1.8",
       "packageUri": "lib/",
       "languageVersion": "1.12"
+    },
+    {
+      "name": "nested",
+      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/nested-0.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
     },
     {
       "name": "path",
@@ -212,10 +206,22 @@
       "languageVersion": "2.1"
     },
     {
+      "name": "provider",
+      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "quiver",
       "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "rxdart",
+      "rootUri": "file:///Users/chriskirby/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.23.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "shared_preferences",
@@ -356,7 +362,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-03-12T16:19:30.464890Z",
+  "generated": "2020-03-17T20:20:35.353254Z",
   "generator": "pub",
   "generatorVersion": "2.8.0-dev.6.0.flutter-5ae5aff640"
 }
