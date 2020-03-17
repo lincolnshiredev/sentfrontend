@@ -1,4 +1,0 @@
-#Tue Mar 17 20:28:56 GMT 2020
-base.0=/Users/chriskirby/Documents/GitHub/sentfrontend/Dev/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
