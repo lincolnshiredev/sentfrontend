@@ -100,7 +100,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Text(
-                  "Click here to add a Ticker",
+                  "Click here to add a ticker",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -124,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Entered ticker eg MSFT or msft",
+                  "Enter a ticker eg MSFT or msft",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -244,7 +244,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Column(
                 children: <Widget>[
                   Text(
-                    "Add Stock Ticker",
+                    "Add Stock ticker",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 23,

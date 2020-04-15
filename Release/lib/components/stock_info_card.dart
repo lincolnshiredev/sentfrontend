@@ -23,9 +23,9 @@ class StockInfo extends StatelessWidget {
             color: Color.fromRGBO(64, 75, 96, .9),
             border: Border(
               right: BorderSide(
-                  color: (double.parse(stockInfoModel.sentiment) < 0) != null
-                      ? Colors.red
-                      : Colors.green,
+                  color: (double.parse(stockInfoModel.sentiment) < 0.00) != null
+                      ? Colors.green
+                      : Colors.red,
                   width: 15),
             ),
           ),

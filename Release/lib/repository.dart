@@ -10,8 +10,12 @@ class Repository {
   //Objects and variables
   final stockApi =
       "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/newsOutput.json";
+      //
+
   final priceApi =
       "https://raw.githubusercontent.com/lincolnshiredev/sentbackend/master/release/Outputs/stockOutput.json";
+      //
+
 
   ///*****..Functions..*****///
 
@@ -97,8 +101,8 @@ class Repository {
 
   //Function to load stocks
   Future<Stock> loadStock(ticker) async {
-    // "https://us-central1-enhanced-bebop-268815.cloudfunctions.net/getArticles?ticker=" + ticker;
-    Response res = await get(stockApi);
+   final stockApi1 = "https://us-central1-enhanced-bebop-268815.cloudfunctions.net/getArticles?ticker=" + ticker;
+    Response res = await get(stockApi1);
 
     if (res.statusCode == 200) {
       // loadPrices(ticker);
@@ -112,10 +116,10 @@ class Repository {
 
   //Function to load prices
   Future<Prices> loadPrices(ticker) async {
-    //"https://us-central1-enhanced-bebop-268815.cloudfunctions.net/stockData?ticker=" +
-    // ticker +
-    // "&days=27";
-    Response res = await get(priceApi);
+    final priceApi1 = "https://us-central1-enhanced-bebop-268815.cloudfunctions.net/stockData?ticker=" +
+     ticker +
+     "&days=27";
+    Response res = await get(priceApi1);
     if (res.statusCode == 200) {
       final jsonResponse = json.decode(res.body);
       final prices = Prices.fromJson(jsonResponse);

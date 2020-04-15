@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Chris\\Documents\\GitHub\\sentfrontend\\Dev\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\Chris\\Documents\\GitHub\\sentfrontend\\Release\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chris\\.gradle\\caches\\transforms-2\\files-2.1\\0a271e99b6771ad4a84318244d532fb7\\core-1.0.0\\res\\values\\values.xml",
@@ -23,6 +23,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Chris\\Documents\\GitHub\\sentfrontend\\Release\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "137,791",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "433,953"
+                    },
+                    "to": {
+                        "startLines": "41,46",
+                        "startColumns": "4,4",
+                        "startOffsets": "2477,2774",
+                        "endLines": "45,48",
+                        "endColumns": "12,12",
+                        "endOffsets": "2769,2934"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Chris\\.gradle\\caches\\transforms-2\\files-2.1\\ae13efc3dbae5c9ee58d4933337fcd21\\coordinatorlayout-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,102,3,13",
@@ -39,25 +58,6 @@
                         "endLines": "2,64,81,170",
                         "endColumns": "60,12,24,24",
                         "endOffsets": "111,3976,4882,10093"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Chris\\Documents\\GitHub\\sentfrontend\\Dev\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "137,791",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "433,953"
-                    },
-                    "to": {
-                        "startLines": "41,46",
-                        "startColumns": "4,4",
-                        "startOffsets": "2477,2774",
-                        "endLines": "45,48",
-                        "endColumns": "12,12",
-                        "endOffsets": "2769,2934"
                     }
                 }
             ]

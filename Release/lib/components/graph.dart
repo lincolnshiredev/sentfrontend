@@ -72,10 +72,10 @@ LineChartData sampleData1(Prices prices) {
           textStyle: TextStyle(
             color: const Color(0xff72719b),
             fontWeight: FontWeight.bold,
-            fontSize: 12,
+            fontSize: 10,
           ),
           getTitles: (value) {
-            return '${value.toInt()}';
+            return 'day ${value.toInt()}';
           },
         ),
         leftTitles: SideTitles(
@@ -85,10 +85,10 @@ LineChartData sampleData1(Prices prices) {
           textStyle: TextStyle(
             color: const Color(0xff75729e),
             fontWeight: FontWeight.bold,
-            fontSize: 12,
+            fontSize: 10,
           ),
           getTitles: (value) {
-            return '${value.floor()}';
+            return '\$${value.floor()}';
           },
         ),
       ),
