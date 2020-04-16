@@ -27,7 +27,7 @@ class PostDetail extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: AppBar(
-        title: Text(post.symbol),
+        title: Text(post.symbol + " News"),
       ),
       body: Container(
         child: Column(

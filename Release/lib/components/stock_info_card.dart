@@ -23,9 +23,9 @@ class StockInfo extends StatelessWidget {
             color: Color.fromRGBO(64, 75, 96, .9),
             border: Border(
               right: BorderSide(
-                  color: (double.parse(stockInfoModel.sentiment) < 0.00) != null
-                      ? Colors.green
-                      : Colors.red,
+                  color: (double.parse(stockInfoModel.sentiment) < 0.00)
+                      ? Colors.red
+                      : Colors.green,
                   width: 15),
             ),
           ),
@@ -50,10 +50,21 @@ class StockInfo extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(height: 10),
-                    Text(
+                    if (double.parse(stockInfoModel.sentiment) < 0.00) ...[
+                      Text(
+                        "Negative News Avg",
+                        style: _textStyle,
+                      ),
+                    ] else ...[
+                      Text(
+                        "Positive News Avg",
+                        style: _textStyle,
+                      ),
+                    ],
+                    /* Text(
                       "Sentiment Score: ${stockInfoModel.sentiment}",
                       style: _textStyle,
-                    ),
+                    ), */
                     Text(
                       "Price: \$${stockInfoModel.price}",
                       style: _textStyle,
