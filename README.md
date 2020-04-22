@@ -1,7 +1,7 @@
 # Group 31 Project Front End
 This repository holds the code and some of the artefact media such as wireframes, development, beta and release apk files.
 
-The flutter / dart code can be found in both the Dev and Release folders.
+The flutter / dart code can be found in both the Beta and Release folders.
 
 The Wireframes can be found within the wireframes folder.
 
